@@ -3,7 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
+
 db = SQLAlchemy() # db object will be used to access the database when needed
+
+#connection_Str = "mysql+mysqlconncetor://root:123@localhost/mostafa"
+# Connect to the database
+#engine = db.create_engine(connection_Str, echo =True) 
+
+# Test the Connection
+#conn = engine.connect()
+
 bcrypt = Bcrypt()
 
 def create_app(test_config=None):
@@ -12,7 +21,7 @@ def create_app(test_config=None):
     # set configuration variables
     app.config["SECRET_KEY"] = b"\x8c\xa5\x04\xb3\x8f\xa1<\xef\x9bY\xca/*\xff\x12\xfb"
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db' #path to database and its name
-    # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqldb://22_appweb_31:9JoOBTaL@mysql.lab.it.uc3m.es/22_appweb_31c"
+    #app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqldb://root:123@localhost/mostafa"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #to supress warnings
     
     # register db to the current app
